@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kethaka's Education</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        /* Additional styles for education page */
+        .education-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInDown 1s ease forwards;
+        }
+        
+        .education-header h1 {
+            font-size: 3rem;
+            color: #0ef;
+            margin-bottom: 1rem;
+        }
+        
+        .education-header p {
+            font-size: 1.2rem;
+            color: aliceblue;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #0ef;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .education-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .education-item:nth-child(odd) {
+            left: 0;
+            animation: fadeInRight 1s ease forwards;
+            animation-delay: calc(var(--order) * 0.3s);
+        }
+        
+        .education-item:nth-child(even) {
+            left: 50%;
+            animation: fadeInLeft 1s ease forwards;
+            animation-delay: calc(var(--order) * 0.3s);
+        }
+        
+        .education-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: #1f242d;
+            border: 4px solid #0ef;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .education-item:nth-child(even)::after {
+            left: -16px;
+        }
+        
+        .education-content {
+            padding: 20px 30px;
+            background-color: #1f242d;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #0ef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:nth-child(even) .education-content {
+            border-left: none;
+            border-right: 5px solid #0ef;
+        }
+        
+        .education-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 238, 255, 0.2);
+        }
+        
+        .education-content h2 {
+            color: #0ef;
+            margin-bottom: 1rem;
+        }
+        
+        .education-content h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-content p {
+            color: aliceblue;
+            line-height: 1.6;
+        }
+        
+        .education-content .date {
+            color: #0ef;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+         .certificates {
+            margin-top: 5rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s;
+        }
+        
+        .certificates h2 {
+            font-size: 2.5rem;
+            color: #0ef;
+            margin-bottom: 2rem;
+        }
+        
+        .certificate-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .certificate-item {
+            background: #1f242d;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: scale(0.9);
+            width: 45%;
+            min-width: 350px;
+        }
+        
+        .certificate-item:nth-child(1) { animation: fadeInScale 0.8s ease forwards 1.8s; }
+        .certificate-item:nth-child(2) { animation: fadeInScale 0.8s ease forwards 2.1s; }
+        
+        .certificate-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 238, 255, 0.3);
+        }
+        
+        .certificate-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #0ef;
+        }
+        
+        .certificate-info {
+            padding: 1.5rem;
+        }
+        
+        .certificate-info h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .certificate-info p {
+            color: aliceblue;
+            font-size: 1.1rem;
+        }
+
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .education-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .education-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .education-item::after {
+                left: 18px;
+            }
+            
+            .education-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .education-content {
+                border-left: 5px solid #0ef !important;
+                border-right: none !important;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media screen and (max-width: 768px) {
+            /* [Your existing mobile styles] */
+            
+            .certificate-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .certificate-item {
+                width: 90%;
+                min-width: unset;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+      <div class="video-background">
+            <video autoplay muted loop id="bg-video">
+                <source src="videos/6310-190925747.mp4">
+            </video>
+            <div class="video-overplay"></div>
+        </div>
+
+    
+
+    <div class="back-button-container">
+        <a href="index.html" class="back-button">
+            <span>&#8592;</span> Back to Portfolio
+        </a>
+    </div>
+    <section class="education-section">
+        <div class="education-header">
+            <h1>My Education Journey</h1>
+            <p>From primary school to university - my path to becoming a software engineer</p>
+        </div>
+        
+        <div class="timeline">
+            <!-- Primary School -->
+            <div class="education-item" style="--order: 1">
+                <div class="education-content">
+                    <h2>Primary Education</h2>
+                    <h3>Kottawa Darmapala Primary School</h3>
+                    <div class="date">2010 - 2015</div>
+                    <p>Completed primary education with distinction, achieving top results in all subjects. </p>
+                </div>
+            </div>
+            
+            <!-- Secondary School -->
+            <div class="education-item" style="--order: 2">
+                <div class="education-content">
+                    <h2>Secondary Education</h2>
+                    <h3>Mahina Rajapaksha College</h3>
+                    <div class="date">2016 - 2021</div>
+                    <p>Achieved 5A's and 4B's in GCE O/L examinations. Developed strong analytical and problem-solving skills through mathematics and science subjects.</p>
+                </div>
+            </div>
+            
+            <!-- SLIIT Foundation -->
+            <div class="education-item" style="--order: 3">
+                <div class="education-content">
+                    <h2>Foundation in IT</h2>
+                    <h3>SLIIT City University</h3>
+                    <div class="date">2022 - 2023</div>
+                    <p>Completed foundation program with distinction (GPA: 3.41). Acquired core competencies in programming, databases, and computer systems, establishing a strong base for my software engineering degree.</p>
+                </div>
+            </div>
+            
+            <!-- SLIIT Degree -->
+            <div class="education-item" style="--order: 4">
+                <div class="education-content">
+                    <h2>BSc (Hons) Software Engineering</h2>
+                    <h3>SLIIT City University</h3>
+                    <div class="date">2024 - Present</div>
+                    <p>Currently in my second year of studies. Learning advanced programming concepts, software architecture, and full-stack development. Maintaining a strong GPA while working on personal projects to enhance my skills.</p>
+                </div>
+            </div>
+        </div>
+        
+         <div class="certificates">
+            <h2>My Certificates</h2>
+            <div class="certificate-container">
+                <div class="certificate-item">
+                    <img src="images/Ordinery level.jpg" alt="Certificate 1">
+                    <div class="certificate-info">
+                        <h3>O/L Examination Certificate</h3>
+                        <p>Awarded for outstanding results in GCE Ordinary Level Examination</p>
+                    </div>
+                </div>
+                
+                <div class="certificate-item">
+                    <img src="images/foundation.jpg" alt="Certificate 2">
+                    <div class="certificate-info">
+                        <h3>Foundation Certificate in IT</h3>
+<p>Awarded upon successful completion of the SLIIT Foundation Program </p>
+                    </div>
+                </div>
+            </div>
+    </section>
+    
+    <script>
+        // Add any JavaScript you need here
+        document.addEventListener('DOMContentLoaded', function() {
+            // You can add interactive elements here if needed
+        });
+    </script>
+</body>
+</html>
