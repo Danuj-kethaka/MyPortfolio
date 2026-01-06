@@ -35,16 +35,28 @@ const body = document.body;
 const header = document.querySelector('.header');
 let isDark = true;
 
-colorToggle.addEventListener('click', () => {
-    isDark = !isDark;
-    if (isDark) {
-        body.style.background = '#000000';
-        header.style.background = '#000000';
-    } else {
-        body.style.background = '#ffffff';
-        header.style.background = '#ffffff';
+document.addEventListener("DOMContentLoaded", () => {
+    const colorToggle = document.getElementById("colorToggle");
+    const body = document.body;
+    const header = document.querySelector(".header");
+
+    let isDark = false;
+
+    if (colorToggle) {
+        colorToggle.addEventListener("click", () => {
+            isDark = !isDark;
+
+            if (isDark) {
+                body.style.background = "#000";
+                if (header) header.style.background = "#000";
+            } else {
+                body.style.background = "#fff";
+                if (header) header.style.background = "#fff";
+            }
+        });
     }
 });
+
 
 // Make sure to include this if you're using Boxicons
 document.addEventListener('DOMContentLoaded', function() {
