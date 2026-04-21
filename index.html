@@ -141,15 +141,15 @@
             
             <!-- Skill Category Buttons -->
             <div class="skill-categories">
-                <button class="category-btn active" data-category="frontend">Frontend</button>
+                <button class="category-btn active" data-category="mobile">Languages</button>
+                <button class="category-btn" data-category="frontend">Frontend</button>
                 <button class="category-btn" data-category="backend">Backend</button>
                 <button class="category-btn" data-category="databases">Databases</button>
-                <button class="category-btn" data-category="mobile">Mobile</button>
                 <button class="category-btn" data-category="tools">Tools & Tech</button>
             </div>
             
             <!-- Frontend Skills (shown by default) -->
-            <div class="Technical-bars category-content" id="frontend">
+            <div class="Technical-bars category-content" id="frontend" style="display:none;">
                 <div class="bar"><i style="color: #c95d2c;" class='bx bxl-html5'></i>
                     <div class="info">
                         <span>HTML</span>
@@ -168,9 +168,9 @@
                     </div>
                 </div>
 
-                <div class="bar"><i style="color: #FFFF00;" class='bx bxl-javascript'></i>
+                <div class="bar"><i style="color: #FFFF00;" class='bx bx-code-alt'></i>
                     <div class="info">
-                        <span>Javascript</span>
+                        <span>Tailwind CSS</span>
                     </div>
                     <div class="progress-line JavaScript">
                         <span></span>
@@ -189,27 +189,27 @@
             
             <!-- Backend Skills (hidden by default) -->
             <div class="Technical-bars category-content" id="backend" style="display:none;">
-                <div class="bar"><i style="color: #c32ec9;" class='bx bxl-php'></i>
+                <div class="bar"><i style="color: #c32ec9;" class='bx bxl-nodejs'></i>
                     <div class="info">
-                        <span>Php</span>
+                        <span>Node JS</span>
                     </div>
                     <div class="progress-line python">
                         <span></span>
                     </div>
                 </div>
                 
-                <div class="bar"><i style="color: #68A063;" class='bx bxl-nodejs'></i>
+                <div class="bar"><i style="color: #68A063;" class='bx bx-server'></i>
                     <div class="info">
-                        <span>Node.js</span>
+                        <span>Express</span>
                     </div>
                     <div class="progress-line nodejs">
                         <span></span>
                     </div>
                 </div>
                 
-                <div class="bar"><i class='bx bx-data'></i>
+                <div class="bar"><i class='bx bx-transfer-alt'></i>
                     <div class="info">
-                        <span>Express</span>
+                        <span>Rest API</span>
                     </div>
                     <div class="progress-line express">
                         <span></span>
@@ -237,25 +237,51 @@
                     </div>
                 </div>
                 
+                 <div class="bar"><i class='bx bx-data'></i>
+                    <div class="info">
+                        <span>Firebase</span>
+                    </div>
+                    <div class="progress-line mongodb">
+                        <span></span>
+                    </div>
+                </div>
+
+                
+                 <div class="bar"><i class='bx bx-data'></i>
+                    <div class="info">
+                        <span>MSSQL Server</span>
+                    </div>
+                    <div class="progress-line mongodb">
+                        <span></span>
+                    </div>
+                </div>
                
             </div>
             
             <!-- Mobile Development Skills (hidden by default) -->
-            <div class="Technical-bars category-content" id="mobile" style="display:none;">
-                <div class="bar"><i style="color: #61DBFB;" class='bx bxl-react'></i>
+            <div class="Technical-bars category-content" id="mobile">
+                <div class="bar"><i style="color: #61DBFB;" class='bx bxl-php'></i>
                     <div class="info">
-                        <span>React Native</span>
+                        <span>PHP</span>
                     </div>
-                    <div class="progress-line reactnative">
+                    <div class="progress-line php">
                         <span></span>
                     </div>
                 </div>
                 
-                <div class="bar"><i style="color: #34a853;" class='bx bxl-android'></i>
+                <div class="bar"><i style="color: #34a853;" class='bx bxl-dotnet'></i>
                     <div class="info">
-                        <span>Android</span>
+                        <span>C#</span>
                     </div>
-                    <div class="progress-line android">
+                    <div class="progress-line c#">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="bar"><i style="color: #34a853;" class='bx bxl-javascript'></i>
+                    <div class="info">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="progress-line javascript">
                         <span></span>
                     </div>
                 </div>
@@ -281,9 +307,9 @@
                     </div>
                 </div>
                 
-                <div class="bar"><i style="color: #FF6C37;" class='bx bxl-android'></i>
+                <div class="bar"><i style="color: #FF6C37;" class='bx bx-paper-plane'></i>
                     <div class="info">
-                        <span>Android Studio</span>
+                        <span>Postman</span>
                     </div>
                     <div class="progress-line docker">
                         <span></span>
@@ -607,21 +633,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Animate to full width
             bar.style.transition = 'width 2s linear';
-            bar.style.width = bar.parentElement.classList.contains('html') ? '90%' :
-                             bar.parentElement.classList.contains('css') ? '90%' :
+            bar.style.width = bar.parentElement.classList.contains('html') ? '100%' :
+                             bar.parentElement.classList.contains('css') ? '100%' :
                              bar.parentElement.classList.contains('JavaScript') ? '90%' :
-                             bar.parentElement.classList.contains('react') ? '80%' :
-                             bar.parentElement.classList.contains('python') ? '90%' :
-                             bar.parentElement.classList.contains('nodejs') ? '85%' :
-                             bar.parentElement.classList.contains('express') ? '85%' :
-                             bar.parentElement.classList.contains('mysql') ? '90%' :
-                             bar.parentElement.classList.contains('mongodb') ? '90%' :
+                             bar.parentElement.classList.contains('react') ? '100%' :
+                             bar.parentElement.classList.contains('python') ? '100%' :
+                             bar.parentElement.classList.contains('nodejs') ? '100%' :
+                             bar.parentElement.classList.contains('express') ? '100%' :
+                             bar.parentElement.classList.contains('mysql') ? '95%' :
+                             bar.parentElement.classList.contains('mongodb') ? '95%' :
                              bar.parentElement.classList.contains('postgresql') ? '70%' :
-                             bar.parentElement.classList.contains('reactnative') ? '80%' :
-                             bar.parentElement.classList.contains('android') ? '90%' :
-                             bar.parentElement.classList.contains('git') ? '95%' :
-                             bar.parentElement.classList.contains('github') ? '80%' :
-                             bar.parentElement.classList.contains('docker') ? '90%' : '0%';
+                             bar.parentElement.classList.contains('php') ? '100%' :
+                             bar.parentElement.classList.contains('javascript') ? '80%' :
+                             bar.parentElement.classList.contains('c#') ? '90%' :
+                             bar.parentElement.classList.contains('git') ? '100%' :
+                             bar.parentElement.classList.contains('github') ? '100%' :
+                             bar.parentElement.classList.contains('docker') ? '100%' : '0%';
         });
     }
 
@@ -653,21 +680,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (isVisible) {
                     bar.style.transition = 'width 2s linear';
-                    bar.style.width = bar.parentElement.classList.contains('html') ? '90%' :
-                                     bar.parentElement.classList.contains('css') ? '85%' :
-                                     bar.parentElement.classList.contains('JavaScript') ? '80%' :
-                                     bar.parentElement.classList.contains('react') ? '70%' :
-                                     bar.parentElement.classList.contains('python') ? '75%' :
-                                     bar.parentElement.classList.contains('nodejs') ? '75%' :
-                                     bar.parentElement.classList.contains('express') ? '70%' :
-                                     bar.parentElement.classList.contains('mysql') ? '80%' :
-                                     bar.parentElement.classList.contains('mongodb') ? '75%' :
-                                     bar.parentElement.classList.contains('postgresql') ? '70%' :
-                                     bar.parentElement.classList.contains('reactnative') ? '75%' :
-                                     bar.parentElement.classList.contains('android') ? '65%' :
-                                     bar.parentElement.classList.contains('git') ? '85%' :
-                                     bar.parentElement.classList.contains('github') ? '90%' :
-                                     bar.parentElement.classList.contains('docker') ? '70%' : '0%';
+                    bar.style.width = bar.parentElement.classList.contains('html') ? '100%' :
+                             bar.parentElement.classList.contains('css') ? '100%' :
+                             bar.parentElement.classList.contains('JavaScript') ? '90%' :
+                             bar.parentElement.classList.contains('react') ? '100%' :
+                             bar.parentElement.classList.contains('python') ? '100%' :
+                             bar.parentElement.classList.contains('nodejs') ? '100%' :
+                             bar.parentElement.classList.contains('express') ? '100%' :
+                             bar.parentElement.classList.contains('mysql') ? '95%' :
+                             bar.parentElement.classList.contains('mongodb') ? '95%' :
+                             bar.parentElement.classList.contains('postgresql') ? '70%' :
+                             bar.parentElement.classList.contains('php') ? '100%' :
+                             bar.parentElement.classList.contains('javascript') ? '80%' :
+                             bar.parentElement.classList.contains('c#') ? '90%' :
+                             bar.parentElement.classList.contains('git') ? '100%' :
+                             bar.parentElement.classList.contains('github') ? '100%' :
+                             bar.parentElement.classList.contains('docker') ? '100%' : '0%';
                 } else {
                     bar.style.transition = 'none';
                     bar.style.width = '0%';
